@@ -1,0 +1,78 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 13vmin;
+  height: 20vmin;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px gray solid;
+  box-shadow: 2px 2px 4px gray;
+  padding: 7px;
+}
+
+.card-center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  font-size: 4vmin;
+  max-width: 10vmin;
+  max-height: 12vmin;
+}
+
+.card-center-item {
+  flex-shrink: 3;
+  flex-grow: 3;
+}
+
+.card-side {
+  display: flex;
+  flex-direction: column;
+  font-size: 2vmin;
+  text-align: center;
+  line-height: 0.8;
+}
+
+.upside-down {
+  transform: rotate(180deg);
+}
+
+.hearts {
+  color: red;
+}
+
+.spades {
+  color: black;
+}
+
+.diamonds {
+  color: red;
+}
+
+.clubs {
+  color: black;
+}
+
+.small-suit {
+  font-size: 3vmin;
+}
+
+.big-suit {
+  font-size: 6vmin;
+}
+
+.card-back {
+  position: absolute;
+  width: 13vmin;
+  height: 20vmin;
+  z-index: 1;
+  background: blue;
+}
