@@ -25,29 +25,26 @@ $(document).ready(function() {
   // Respond to clicking on a card
   $(".card").click(function(){
 
-    // Get the current card and previous card
+    // Get the current and previous card
     memory.setCurrentCard($(this).find("div"), $(this).find("div").attr("suit"), $(this).find("div").attr("rank"));
-    const currentCard = memory.getCurrentCard();
-    const previousCard = memory.getPreviousCard();
-    const cardCount = memory.getCardCount();
+    let currentCard = memory.getCurrentCard();
+    let previousCard = memory.getPreviousCard();
+    //let cardCount = memory.getCardCount();
 
     // Set the current card face up
     memory.setFaceUp(currentCard);
-    ++cardCount;
+    //cardCount++; // Set the current card face up
 
     if (previousCard != null) {
-
-      if (previousCard.suit == currentCard.suit && previousCard.suit == currentCard.suit) {
-        // Both cars match, leave face up
-        // Increment card count
-        memory.setCardCount(++cardCount);
+      if (previousCard.suit === currentCard.suit && previousCard.suit === currentCard.suit) {
+        // Both cards match, leave face up
       }
-      if (previousCard.suit != currentCard.suit || previousCard.rank != currentCard.rank) {
+      else {
         // Both cards are different, turn face down
-        window.setInterval( () => { memory.setFaceDown(currentCard); memory.setFaceDown(previousCard); }, 1000);
-        --cardCount;
+        memory.setFaceDown(currentCard); memory.setFaceDown(previousCard);
+        //window.setInterval( () => { memory.setFaceDown(currentCard); memory.setFaceDown(previousCard); }, 1000);
+        //cardCount -= 2;
       }
-
       memory.clearPreviousCard()
     }
     else {
@@ -55,10 +52,10 @@ $(document).ready(function() {
     }
 
     // If all cards are up congratulate the user
-    if (cardCount == 10) {
-      alert('congrats!');
-    }
-    memory.setCardCount(cardCount);
+    //if (cardCount === 10) {
+    //  alert('congrats!');
+    //}
+    //memory.setCardCount(cardCount);
   });
 
 });
