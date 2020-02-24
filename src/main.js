@@ -1,55 +1,64 @@
-// import { Memory } from './memory.js';
-import { Deck } from './memory.js';
+import { Deck, Memory } from './memory.js';
 import { DeckUI } from './ui.js';
 import './style.css';
 
 let deck = new Deck();
 let ui = new DeckUI();
-let lastSuit = null;
-let lastRank = null;
-let lastDiv = null;
+let memory = new Memory();
 
 $(document).ready(function() {
 
+  // Shuffle the deck
   deck.shuffle();
+
+  // Get five random cards and duplicate them once so that there are ten pairs
   let cards = deck.cards;
   cards = cards.splice(0,5);
   cards = cards.concat(cards);
+
+  // Add cards to the user interface
   let html = "";
   for (let card of cards)
     html += ui.createCard(card.suit, card.rank);
   $("#card-container").append(html);
 
+  // Respond to clicking on a card
   $(".card").click(function(){
 
-    let thisDiv = $(this).find("div");
-    let thisSuit = thisDiv.attr("suit");
-    let thisRank = thisDiv.attr("rank");
+    // Get the current card and previous card
+    memory.setCurrentCard($(this).find("div"), $(this).find("div").attr("suit"), $(this).find("div").attr("rank"));
+    const currentCard = memory.getCurrentCard();
+    const previousCard = memory.getPreviousCard();
+    const cardCount = memory.getCardCount();
 
-    if (lastDiv && lastSuit && lastRank) {
-      if (lastSuit != thisSuit || lastRank != thisRank) {
-        thisDiv.show();
-        lastDiv.show();
-        window.setInterval(function(){ $(thisDiv).hide(); $(lastDiv).hide(); }, 1000);
+    // Set the current card face up
+    memory.setFaceUp(currentCard);
+    ++cardCount;
+
+    if (previousCard != null) {
+
+      if (previousCard.suit == currentCard.suit && previousCard.suit == currentCard.suit) {
+        // Both cars match, leave face up
+        // Increment card count
+        memory.setCardCount(++cardCount);
       }
-      else {
-        thisDiv.hide();
-        
+      if (previousCard.suit != currentCard.suit || previousCard.rank != currentCard.rank) {
+        // Both cards are different, turn face down
+        window.setInterval( () => { memory.setFaceDown(currentCard); memory.setFaceDown(previousCard); }, 1000);
+        --cardCount;
       }
+
+      memory.clearPreviousCard()
     }
     else {
-      thisDiv.hide();
+      memory.setPreviousCard(currentCard.div, currentCard.suit, currentCard.rank);
     }
 
-    lastSuit = thisSuit;
-    lastRank = thisRank;
-    lastDiv = thisDiv;
-    // Get the values of cards being shown
-    // Ignore matching pairs of cards
-    // If there are two unique cards shown, hide them both
     // If all cards are up congratulate the user
-    
-    // div.is(":visible") ? div.toggle()
+    if (cardCount == 10) {
+      alert('congrats!');
+    }
+    memory.setCardCount(cardCount);
   });
 
 });

@@ -1,6 +1,35 @@
 export class Memory {
   constructor() {
-    
+    this.previousCard = null;
+    this.currentCard = null;
+    this.cardCount = 0;
+  }
+  getPreviousCard() {
+    return this.previousCard;
+  }
+  setPreviousCard(div, suit, rank) {
+    this.previousCard = { 'div': div, 'suit': suit, 'rank': rank };
+  }
+  getCurrentCard() {
+    return this.currentCard;
+  }
+  setCurrentCard(div, suit, rank) {
+    this.currentCard = { 'div': div, 'suit': suit, 'rank': rank };
+  }
+  setFaceDown(card) {
+    card.div.show();
+  }
+  setFaceUp(card) {
+    card.div.hide();
+  }
+  clearPreviousCard() {
+    this.previousCard = null;
+  }
+  setCardCount(count) {
+    this.cardCount = count;
+  }
+  getCardCount() {
+    return this.cardCount;
   }
 }
 
