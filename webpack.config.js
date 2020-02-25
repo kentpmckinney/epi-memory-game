@@ -21,11 +21,12 @@ module.exports = {
       title: 'Memory Game',
       template: './src/index.html',
       inject: 'body'
-    }),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-  })
+    })
+  //   ,
+  //   new webpack.ProvidePlugin({
+  //     $: "jquery",
+  //     jQuery: "jquery"
+  // })
   ],
   module: {
     rules: [

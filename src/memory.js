@@ -3,6 +3,7 @@ export class Memory {
     this.previousCard = null;
     this.currentCard = null;
     this.cardCount = 0;
+    this.numRounds = 0;
   }
   getPreviousCard() {
     return this.previousCard;
@@ -30,6 +31,12 @@ export class Memory {
   }
   getCardCount() {
     return this.cardCount;
+  }
+  getNumRounds() {
+    return this.numRounds;
+  }
+  setNumRounds(num) {
+    this.numRounds = num;
   }
 }
 
