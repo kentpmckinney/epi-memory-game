@@ -1,4 +1,4 @@
-<!-- Category: Epicodus;HTML/CSS/JS -->
+<!-- Category: Epicodus;Games;HTML/CSS/JS -->
 
 # Memory Game
 https://github.com/kentpmckinney/epi-memory-game
