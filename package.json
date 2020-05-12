@@ -1,34 +1,34 @@
 {
-  "name": "epicodus-memory-game",
+  "name": "epi-memory-game",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "build": "webpack --mode development; cp dist/index.html ./; cp dist/bundle.js ./",
     "start": "npm run build; webpack-dev-server --open --mode development",
     "lint": "eslint src/*.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Kent P. McKinney",
+  "license": "",
   "devDependencies": {
+    "bootstrap": "^4.4.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.3.0",
     "eslint-loader": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.5.0",
+    "jquery": "^3.5.1",
     "popper.js": "^1.15.0",
     "style-loader": "^1.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "4.39.3",
     "webpack-cli": "^3.3.8",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.5.0",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.5.1",
     "popper.js": "^1.15.0"
   }
 }

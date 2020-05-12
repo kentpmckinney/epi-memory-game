@@ -7,14 +7,14 @@ let deck = new Deck();
 let ui = new DeckUI();
 let memory = new Memory();
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   /* Shuffle the deck */
   deck.shuffle();
 
   /* Get five random cards and duplicate them once so that there are ten pairs */
   let cards = deck.cards;
-  cards = cards.splice(0,5);
+  cards = cards.splice(0, 5);
   cards = cards.concat(cards);
 
   /* Add cards to the user interface */
@@ -24,7 +24,7 @@ $(document).ready(function() {
   $("#card-container").append(html);
 
   /* Respond to clicking on a card */
-  $(".card").click(function(){
+  $(".card").click(function () {
 
     // Get the current and previous card
     memory.setCurrentCard($(this).find("div"), $(this).find("div").attr("suit"), $(this).find("div").attr("rank"));
@@ -43,7 +43,7 @@ $(document).ready(function() {
       }
       else {
         // Both cards are different, turn face down
-        window.setTimeout( () => { memory.setFaceDown(currentCard); memory.setFaceDown(previousCard); clearTimeout(this.id); }, 1000);
+        window.setTimeout(() => { memory.setFaceDown(currentCard); memory.setFaceDown(previousCard); clearTimeout(this.id); }, 1000);
         cardCount -= 2;
       }
       memory.clearPreviousCard();
@@ -61,7 +61,7 @@ $(document).ready(function() {
   });
 
   /* Respond to the 'Start Game' button */
-  $("#reset").click(function(){
+  $("#reset").click(function () {
     location.reload();
   });
 

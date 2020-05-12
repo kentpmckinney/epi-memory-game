@@ -36,17 +36,9 @@ Git (optional but recommended)
 4. Build the application with the command `npm run build`
 5. Start the application with the command `npm run start`
 
-## Running Automated Tests
-
-how to run the automated tests
-
-```
-example
-```
-
 ## Deployment
 
-
+Run the command 'npm run build' and deploy the 'index.html' and 'bundle.js' that appear in the root directory.
 
 ## Technologies Used
 
@@ -64,3 +56,4 @@ Kent McKinney - [GitHub](https://github.com/kentpmckinney) - [LinkedIn](https://
 
 ## Acknowledgments
 
+https://www.learnhowtoprogram.com/intermediate-javascript/test-driven-development-and-environments-with-javascript/webpack-and-npm-practice
